@@ -2,17 +2,13 @@ import dotenv from "dotenv";
 dotenv.config();
 export default {
   MYSQLDB: {
-    // DATABASE_NAME:process.env.DATABASE_NAME,
-    // USERNAME:process.env.USERNAME,
-    // PASSWORD:process.env.PASSWORD,
-    // HOST:process.env.HOST,
-    DATABASE_NAME: "loginRadius",
-    USERNAME: "root",
-    PASSWORD: "password",
-    HOST: "localhost",
+    DATABASE_NAME: process.env.DATABASE_NAME || "loginRadius",
+    USERNAME: process.env.DB_USERNAME || "root",
+    PASSWORD: process.env.DB_PASSWORD || "password",
+    HOST: process.env.DB_HOST || "localhost",
   },
   RUNNING_PORT: parseInt(process.env.PORT || "3003"),
-  NODE_ENV: "dev",
+  NODE_ENV: process.env.NODE_ENV || "development",
   WHITELISTED_DOMAINS: [process.env.LOCAL_DOMAIN],
   JWT: {
     ACCESS_SECRET: process.env.JWT_ACCESS_SECRET,
